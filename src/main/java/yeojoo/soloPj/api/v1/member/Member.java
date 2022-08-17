@@ -8,7 +8,7 @@ import org.springframework.data.domain.Auditable;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "MEMBER")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -30,10 +30,14 @@ public class Member extends Auditable {
     @Column(nullable = false)
     private String company_name;
 
+    @ManyToOne
     @Column(nullable = false)
+    @JoinColumn(name = "COMPANY_TYPE")
     private long company_type;
 
+    @ManyToOne
     @Column(nullable = false)
+    @JoinColumn(name = "COMPANY_LOCATION")
     private long company_location;
 
 }
